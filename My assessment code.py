@@ -36,6 +36,5 @@ elif score < 6:
 elif score < 8:
    print(f"You got a score of {score}, this score is really impressive if you can actually remember some of those obscure ones.")
 elif score < 10:
-   print(f"You got a score of {score}, either you got this score because some of your answers were ai sources from reddit or you're just a geek.")
-elif score == 10:
    print(f"You got a score of {score}, congrats on cheating to get here but if you didn't then you're just marvels biggest geek.")
+   #This is the print you get for full completion by the way, it doesn't really matter what number below it is.
