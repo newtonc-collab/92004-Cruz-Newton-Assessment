@@ -5,8 +5,7 @@
 """
 
 # Variable Section
-# Converting dict into something that I can iterate through with next() function (5-7)
-# To keep score of how many answers are right (8)
+# Converting dict into something that I can iterate through with next() function
 questionsandanswersdict= {
    "Who played Odin in Thor Ragnarok?": "Sam Neill", 
    "Who plays Korg in Avengers end game?": "Taika Waititi", 
@@ -19,11 +18,12 @@ questionsandanswersdict= {
    }
 questioniterator = iter(questionsandanswersdict.keys())
 answeriterator = iter(questionsandanswersdict.values())
+# To keep score of how many answers are right 
 score = 0
 
 # Quiz Loop: Each question in the dict will be asked here and users will be able to input their answer through this filter until all of them are done. 
 while True:
-    # This will print out the question for people to see and will stop the quiz loop if there is nothing left to iterate it
+    # This will print out the questions for people to see and will stop the quiz loop if there is nothing left to iterate
     try:
        print(next(questioniterator))
     except StopIteration:
@@ -33,20 +33,20 @@ while True:
     # It also doesn't accept anything above 70 characters since that is the legal NZ limit.
     while True:
       userinput = input("Name: ")
-      if all(letter.isalpha() for letter in userinput.split()) and userinput.isspace() == False:
+      if all(letter.isalpha() for letter in userinput.split()) and userinput.isspace() == False and not userinput == '':
          if len(userinput) < 71:
             break
          print("That name is over the legal limit of characters a name can have in New Zealand")
       print("Please do not enter blank space, special characters, or numbers.")
 
-    # Checks if their answer is right by checking if the input is the same as the answer. If answer is right it will add score but if not it will print out the right answer.
+    # Checks if their answer is right by compareing the input with the answer. If the answer is right it will add score by 1, but if not it will print out the right answer.
     rightanswer = next(answeriterator)
     if userinput.title() == rightanswer:
        score = score + 1
     else:
        print(f"That answer is wrong, the answer is {rightanswer}")
 
-# Score ratings: Each number of questions correct will print out a win message, it uses lesser than specific numbers to cover all possible scores.
+# Score ratings: Each number of questions correct will print out a win message, it uses "lesser than" specific numbers to cover all possible scores.
 if score < 2:
    print(f"You only got a score of {score}, thats means you're an actual normal person and not a marvel geek.")
 elif score < 4:
