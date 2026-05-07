@@ -8,13 +8,13 @@
 # Converting dict into something that I can iterate through with next() function
 questionsandanswersdict= {
    "Who played Odin in Thor Ragnarok?": "Sam Neill", 
-   "Who plays Korg in Avengers end game?": "Taika Waititi", 
+   "Who plays Korg in Avengers End Game?": "Taika Waititi", 
    "Who played Skurge in Thor Ragnarok?": "Karl Urban", 
    "Who played Fire fist in Deadpool 2?": "Julian Dennison", 
-   "Who played Topaz in Thor ragnarok?": "Rachel House", 
+   "Who played Topaz in Thor Ragnarok?": "Rachel House", 
    "Who played Ashley Kafka in Spiderman 2?": "Marton Csokas", 
    "Who played Rouge in X-Men: Days of Future Past?": "Anna Paquin", 
-   "And finally, who played ghost in Ant-Man and the Wasp? (hint: last name is 2 words)": "Hannah John Kamen"
+   "And finally, who played the Maori Princess in Thor: Love and Thunder?": "Chayla Korewha"
    }
 questioniterator = iter(questionsandanswersdict.keys())
 answeriterator = iter(questionsandanswersdict.values())
@@ -36,7 +36,7 @@ while True:
       if all(letter.isalpha() for letter in userinput.split()) and userinput.isspace() == False and not userinput == '':
          if len(userinput) < 71:
             break
-         print("That name is over the legal limit of characters a name can have in New Zealand")
+         print("That name is over the legal 70 character limit a full name can have in New Zealand")
       print("Please do not enter blank space, special characters, or numbers.")
 
     # Checks if their answer is right by compareing the input with the answer. If the answer is right it will add score by 1, but if not it will print out the right answer.
