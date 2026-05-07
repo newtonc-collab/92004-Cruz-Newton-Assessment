@@ -43,6 +43,7 @@ while True:
     rightanswer = next(answeriterator)
     if userinput.title() == rightanswer:
        score = score + 1
+       print("That answer is right!")
     else:
        print(f"That answer is wrong, the answer is {rightanswer}")
 
