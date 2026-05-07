@@ -1,4 +1,3 @@
-
 """
    This program is a quiz to guess the first as well as sir names of 
    new zealand actors who have had a role inside marvel movies
@@ -7,8 +6,8 @@
 # Variable Section
 # Converting dict into something that I can iterate through with next() function
 questionsandanswersdict= {
-   "Who played Odin in Thor Ragnarok?": "Sam Neill", 
-   "Who plays Korg in Avengers End Game?": "Taika Waititi", 
+   "Who played Odin in Thor Ragnarok? Was it? Sam Neill, Karl Urban, Hannah Gray": "Sam Neill", 
+   "Who plays Korg in Avengers End Game? Was it? Chadwick Boseman, Taika Waititi, Jimmy Drake": "Taika Waititi", 
    "Who played Skurge in Thor Ragnarok?": "Karl Urban", 
    "Who played Fire fist in Deadpool 2?": "Julian Dennison", 
    "Who played Topaz in Thor Ragnarok?": "Rachel House", 
