@@ -1,5 +1,5 @@
 """
-   May 11th 2026, Cruz Newton.
+   May 12th 2026, Cruz Newton.
    This program is a quiz to guess the first as well as sir names of 
    new zealand actors who have had a role inside marvel movies: 
 """
@@ -43,6 +43,7 @@ while True:
        question = next(questioniterator)
     except StopIteration:
       break
+    print(f"Your score so far: {score}")
     print(question)
 
     # Will ask for user to type an answer and if their input is anything but the names it will ask to try again.
