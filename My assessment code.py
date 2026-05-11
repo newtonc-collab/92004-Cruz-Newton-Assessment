@@ -57,7 +57,8 @@ while True:
          print("That answer is right!")
          score = score + 1
          break
-      print("Please enter one of the three names correctly. Try type it in again.")
+      print("Please enter one of the three names correctly:")
+      print(question)
 
 # Score ratings: Each number of questions correct will print out a win message, it uses "lesser than" specific numbers to cover all possible scores.
 if score < 2:
