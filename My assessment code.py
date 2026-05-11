@@ -4,47 +4,60 @@
 """
 
 # Variable Section
-# Converting dict into something that I can iterate through with next() function
+# Converting dict's into something that I can iterate through with next() function:
 questionsandanswersdict= {
-   "Who played Odin in Thor Ragnarok? Was it? Sam Neill, Karl Urban, Hannah Gray": "Sam Neill", 
+   "Who played Odin actor in Thor Ragnarok? Was it? Sam Neill, Karl Urban, Hannah Gray": "Sam Neill", 
    "Who plays Korg in Avengers End Game? Was it? Chadwick Boseman, Taika Waititi, Jimmy Drake": "Taika Waititi", 
-   "Who played Skurge in Thor Ragnarok?": "Karl Urban", 
-   "Who played Fire fist in Deadpool 2?": "Julian Dennison", 
-   "Who played Topaz in Thor Ragnarok?": "Rachel House", 
-   "Who played Ashley Kafka in Spiderman 2?": "Marton Csokas", 
-   "Who played Rouge in X-Men: Days of Future Past?": "Anna Paquin", 
-   "And finally, who played the Maori Princess in Thor: Love and Thunder?": "Chayla Korewha"
+   "Who played Skurge in Thor Ragnarok? Was it? Karl Urban, Park Sanchez, Rachel House": "Karl Urban", 
+   "Who played Fire fist in Deadpool 2? Was it? Ryan Reynolds, Tony Hawk, Julian Dennison": "Julian Dennison", 
+   "Who played Topaz in Thor Ragnarok? Was it? Emily Farce, Rachel House, Chris Hemsworth": "Rachel House", 
+   "Who played Ashley Kafka in Spiderman 2? Was it? Rosemary Harris, Kirsten Dunst, Marton Csokas": "Marton Csokas", 
+   "Who played Rouge in X-Men: Days of Future Past? Was it? Anna Paquin, Jennifer Lawrence, Morgan Lily": "Anna Paquin", 
+   "And finally, who played the Maori Princess in Thor: Love and Thunder? Was it? Chayla Korewha, Melissa McCarthy, Pom Klementieff": "Chayla Korewha"
    }
+wronganswers = {
+    "Karl Urban": "Hannah Gray", 
+    "Chadwick Boseman": "Jimmy Drake", 
+    "Park Sanchez": "Rachel House", 
+    "Ryan Reynolds": "Tony Hawk", 
+    "Emily Farce": "Chris Hemsworth", 
+    "Rosemary Harris": "Kirsten Dunst", 
+    "Jennifer Lawrence": "Morgan Lily", 
+    "Melissa McCarthy": "Pom Klementieff"
+}
+#The iterates: Can use next() to cycle through one variable at a time..
 questioniterator = iter(questionsandanswersdict.keys())
 answeriterator = iter(questionsandanswersdict.values())
-# To keep score of how many answers are right 
+firstwrongansweriterator = iter(wronganswers.keys())
+secondwrongansweriterator = iter(wronganswers.values())
+# To keep score of how many answers are right: Score is 0 by default
 score = 0
 
 # Quiz Loop: Each question in the dict will be asked here and users will be able to input their answer through this filter until all of them are done. 
 while True:
     # This will print out the questions for people to see and will stop the quiz loop if there is nothing left to iterate
     try:
-       print(next(questioniterator))
+       question = next(questioniterator)
     except StopIteration:
       break
+    print(question)
 
-    # Will ask for user to type an answer and if it contains nothing, special characters, or numbers it will ask again. 
-    # It also doesn't accept anything above 70 characters since that is the legal NZ limit.
+    # Will ask for user to type an answer and if their input is anything but the names it will ask to try again.
+    rightanswer = next(answeriterator)
+    wronganswer = next(firstwrongansweriterator)
+    wronganswer2 = next(secondwrongansweriterator)
     while True:
       userinput = input("Name: ")
-      if all(letter.isalpha() for letter in userinput.split()) and userinput.isspace() == False and not userinput == '':
-         if len(userinput) < 71:
-            break
-         print("That name is over the legal 70 character limit a full name can have in New Zealand")
-      print("Please do not enter blank space, special characters, or numbers.")
-
-    # Checks if their answer is right by compareing the input with the answer. If the answer is right it will add score by 1, but if not it will print out the right answer.
-    rightanswer = next(answeriterator)
-    if userinput.title() == rightanswer:
-       score = score + 1
-       print("That answer is right!")
-    else:
-       print(f"That answer is wrong, the answer is {rightanswer}")
+      #If your answer is wrong: Print right answer, Break loop to get next question
+      if userinput.title() == wronganswer or userinput.title() == wronganswer2:
+         print(f"That answer is wrong, the answer is {rightanswer}")
+         break
+      #If your answer is right: Give score, Print some congrats, Break loop to get next question
+      elif userinput.title() == rightanswer:
+         print("That answer is right!")
+         score = score + 1
+         break
+      print("Please enter one of the three names correctly. Try type it in again.")
 
 # Score ratings: Each number of questions correct will print out a win message, it uses "lesser than" specific numbers to cover all possible scores.
 if score < 2:
